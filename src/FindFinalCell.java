@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class FindWayCycle {
+public class FindFinalCell { // Наверное должен быть интерфейс?
     final static int[][] aroundCell = {
             {-1, -1}, {-1, 0}, {-1, 1},
             {0, -1}, {0, 1},

@@ -1,32 +1,21 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        File file = new File("print.txt");
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write("");
+        fileWriter.flush();
+        fileWriter.close();
+
         Field field = new Field(9, 10);
         field.setStartCell(5, 5);
         field.setFinalCell(8, 8);
         field.printField();
-        FindWayCycle.findWay(field);
-
-//        boolean isFinalCell = false;
-//        int countCell = 0;
-//        Cell cellNow = field.getStartCell();
-//        System.out.println(cellNow);
-////        FindWay fw = new FindWay();
-//        FindWay.FindWay(field, field.getStartCell());
-//        System.out.println();
-
-
-        final int[][] aroundCell = {
-                {-1, -1}, {-1, 0}, {-1, 1},
-                {0, -1}, {0, 1},
-                {1, -1}, {1, 0}, {1, 1}
-        };
-//        Field field1 = new Field(8, 8);
-//        FindWayCycle.fill2d(field1, 2,2,2);
-//        Main.fill2d(field1, 2, 2);
-//        field1.printField();
-
+        FindFinalCell.findWay(field);
+        System.out.println(PathRestoration.pathRestoration(field));
 
     }
 
@@ -53,38 +42,7 @@ public class Main {
 //        }
 //    }
 
-    public static void fill2d(Field field, int x, int y) {
-        int a = y - 1;
-        int b = y + 1;
-        int d = x - 1;
-        int c = x + 1;
-        int number = 1;
-        int numCircle = 1;
-        int count = 0;
 
-        while (number <= 200) {
-            count++;
-            if (x >= 0 && x< field.sizeHeight && y >= 0 && y <field.sizeWidth){
-                field.setCell(x, y, number);
-            }
-
-            if (y > a && x == c) y--;
-            else if (x > d && y == a) x--;
-            else if (y < b && x == d) y++;
-            else x++;
-
-            if (count == numCircle * 8 +1) {
-                count = 0;
-                a--;
-                b++;
-                d--;
-                c++;
-                numCircle++;
-            }
-
-            number++;
-        }
-    }
 
 
 }
