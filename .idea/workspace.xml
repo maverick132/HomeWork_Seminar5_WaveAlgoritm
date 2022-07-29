@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31245f59-0510-4a85-ab71-dbd5196e7dce" name="Changes" comment="Add method for find way, add method for log all steps find way">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PathRestoration.java" afterDir="false" />
+    <list default="true" id="31245f59-0510-4a85-ab71-dbd5196e7dce" name="Changes" comment="Add method for restore way">
+      <change afterPath="$PROJECT_DIR$/src/FindWayMoore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FindWayNeumann.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FindWay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FindWayCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FindFinalCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FindFinalCell.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PathRestoration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PathRestoration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +19,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -101,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658930102353</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add method for restore way">
+      <created>1659039027086</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659039027086</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,20 +135,13 @@
     <MESSAGE value="Add method for print field" />
     <MESSAGE value="Add Field class and Cell class" />
     <MESSAGE value="Add method for find way, add method for log all steps find way" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add method for find way, add method for log all steps find way" />
+    <MESSAGE value="Add method for restore way" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add method for restore way" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PathRestoration.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Field" memberName="Field" />
         <PinnedItemInfo parentTag="Field" memberName="size" />
       </pinned-members>
     </pin-to-top-manager>

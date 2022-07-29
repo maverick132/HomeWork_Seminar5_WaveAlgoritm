@@ -4,44 +4,32 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("print.txt");
+        File file = new File("log1.txt");
         FileWriter fileWriter = new FileWriter(file);
         fileWriter.write("");
         fileWriter.flush();
         fileWriter.close();
+        file = new File("log2.txt");
+        fileWriter = new FileWriter(file);
+        fileWriter.write("");
+        fileWriter.flush();
+        fileWriter.close();
 
-        Field field = new Field(9, 10);
-        field.setStartCell(5, 5);
-        field.setFinalCell(8, 8);
-        field.printField();
-        FindFinalCell.findWay(field);
-        System.out.println(PathRestoration.pathRestoration(field));
+        Field fieldMoore = new Field(10, 10);
+        fieldMoore.setStartCell(5, 5);
+        fieldMoore.setFinalCell(8, 8);
+        fieldMoore.printField();
+        FindWayMoore.findWay(fieldMoore);
+        System.out.println(PathRestoration.pathRestoration(fieldMoore));
+
+        Field fieldNeumann = new Field(10, 10);
+        fieldNeumann.setStartCell(0, 0);
+        fieldNeumann.setFinalCell(3, 8);
+        fieldNeumann.printField();
+        FindWayNeumann.findWay(fieldNeumann);
+        System.out.println(PathRestoration.pathRestoration(fieldNeumann));
 
     }
-
-//    public static void  fill2d(int[][] ar, int x,int y) {
-//        int numberRectangle = 0;
-//        int i = 0;//3 строки [строки, Height,y][столбцы, Width, x]
-//        int j = 0;//8 столбцы
-//        int N = ar[0].length; //8 столбцы
-//        int M = ar.length; //3 строки
-//        int number = 1;
-//
-//        while (number <= N * M) {
-//            ar[i][j] = number;
-//
-//            if (i == numberRectangle && j < N - numberRectangle - 1) j++;
-//            else if (j == N - numberRectangle - 1 && i < M - numberRectangle - 1) i++;
-//            else if (i == M - numberRectangle - 1 && j > numberRectangle) j--;
-//            else i--;
-//
-//            if (i ==numberRectangle +1 && j ==numberRectangle && numberRectangle != N -numberRectangle -1) {
-//                numberRectangle++;
-//            }
-//            number++;
-//        }
-//    }
-
 
 
 

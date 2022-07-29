@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Path;
 
 public class Field {
     int sizeWidth;
@@ -51,13 +50,12 @@ public class Field {
             }
             System.out.println();
         }
-
         System.out.println();
     }
-    public void printFieldToFile() throws IOException {
-        File file = new File("print.txt");
-        file.createNewFile();
-        FileWriter fileWriter = new FileWriter(file,true);
+
+    public void printFieldToFile(int countFileNum) throws IOException {
+        File file = new File("log" + countFileNum++ + ".txt");
+        FileWriter fileWriter = new FileWriter(file, true);
 
         int sizeElementsMax = 0; // Минимальный размер ячейки.
 
@@ -115,9 +113,10 @@ public class Field {
 
     public Cell getCell(int coordinateX, int coordinateY) {
         return this.Field[coordinateX][coordinateY];
-    } public void setCell(int coordinateX, int coordinateY, int step) {
-        if (isValidCoordinates(coordinateX,coordinateY))
-        {
+    }
+
+    public void setCell(int coordinateX, int coordinateY, int step) {
+        if (isValidCoordinates(coordinateX, coordinateY)) {
             this.Field[coordinateX][coordinateY].stepFromStart = step;
         }
     }
