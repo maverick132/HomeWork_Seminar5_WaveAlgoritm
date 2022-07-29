@@ -10,7 +10,7 @@ public class PathRestoration {
 
     public static String pathRestoration(Field field) {
 
-        coordinateWay = new int[field.getFinalCell().stepFromStart + 1 ][2];
+        coordinateWay = new int[field.getFinalCell().stepFromStart + 1][2];
         coordinateWay[0][0] = field.getFinalCell().coordinateX;
         coordinateWay[0][1] = field.getFinalCell().coordinateY;
         int countMatrix = 1;
@@ -18,7 +18,7 @@ public class PathRestoration {
 
         boolean isWayFind = false;
         boolean isWayCantFound = false;
-        Cell cellNow = new Cell(field.getFinalCell().coordinateX, field.getFinalCell().coordinateY, field.getFinalCell().stepFromStart);
+        Cell cellNow = field.getFinalCell().copy();
         while (!isWayFind && !isWayCantFound) {
             int x = cellNow.coordinateX;
             int y = cellNow.coordinateY;
@@ -29,9 +29,7 @@ public class PathRestoration {
                 for (int i = 0; i < 8; i++) {
                     if (field.isValidCoordinates(x + aroundCell[i][0], y + aroundCell[i][1])) {
                         if (field.getCell(x + aroundCell[i][0], y + aroundCell[i][1]).stepFromStart + 1 == minStepAround) { //Переопределить метод сравнения ячеек
-                            cellNow.coordinateX = field.getCell(x + aroundCell[i][0], y + aroundCell[i][1]).coordinateX;
-                            cellNow.coordinateY = field.getCell(x + aroundCell[i][0], y + aroundCell[i][1]).coordinateY;
-                            cellNow.stepFromStart = field.getCell(x + aroundCell[i][0], y + aroundCell[i][1]).stepFromStart;
+                            cellNow = field.getCell(x + aroundCell[i][0], y + aroundCell[i][1]).copy();
                             count++;
                             minStepAround = cellNow.stepFromStart;
                         }
@@ -96,14 +94,14 @@ public class PathRestoration {
     }
 
     public static Field fieldWithWay(Field field) {
-        Field fieldResult = new Field(field.sizeHeight, field.sizeHeight);
+        Field fieldResult = new Field(field.sizeHeight, field.sizeWidth);
         for (Cell[] value : field.Field) { // Вычисляем длину наибольшего элемента в массиве
             for (Cell cell : value) {
-                for (int i = 0; i < coordinateWay.length; i++) {
-                    if (coordinateWay[i][0] == cell.coordinateX && coordinateWay[i][1] == cell.coordinateY) {
+                for (int[] ints : coordinateWay) {
+                    if (ints[0] == cell.coordinateX && ints[1] == cell.coordinateY) {
                         fieldResult.getCell(cell.coordinateX, cell.coordinateY).stepFromStart = -99;
                     } else {
-                        if ( fieldResult.getCell(cell.coordinateX, cell.coordinateY).stepFromStart != -99) {
+                        if (fieldResult.getCell(cell.coordinateX, cell.coordinateY).stepFromStart != -99) {
                             fieldResult.getCell(cell.coordinateX, cell.coordinateY).stepFromStart = cell.stepFromStart;
                         }
                     }
